@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="fr"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="media/trophees-louveteaux.webp" as="image"/><link rel="preload" href="media/trophee-padel.webp" as="image"/><link rel="preload" href="media/medaille-foot.webp" as="image"/><link rel="preload" href="media/trophees-triathlon.webp" as="image"/><link rel="stylesheet" href="assets/styles.css" data-rsc-css-href="assets/styles.css" data-precedence="vite-rsc/importer-resources"/><title>My GPX — Ton effort. Ton histoire. Ton trophée.</title><meta name="description" content="Souvenirs de courses, trophées et médailles personnalisés en bois, fabriqués artisanalement dans le Var."/>
+</head><body><main><header class="site-header"><a href="index.html" class="brand" aria-label="My GPX, accueil"><span class="brand-mark" aria-hidden="true">M</span><span><strong>MY GPX</strong><small>Ton effort. Ton histoire. Ton trophée.</small></span></a><nav class="main-nav" aria-label="Navigation principale"><a href="index.html#modeles">Nos créations</a><a href="index.html#savoir-faire">Savoir-faire</a><a href="index.html#realisations">Réalisations</a></nav><a href="devis.html" class="button button-dark header-cta">Demander un devis</a></header><section class="product-hero"><div><p class="eyebrow"><span></span> <!-- -->Clubs, entreprises et organisateurs</p><h1>Trophées &amp; médailles</h1><p>Donne une identité forte à ton événement avec des récompenses imaginées spécialement pour lui.</p><div class="product-price">Uniquement sur devis</div><a href="devis.html?projet=Troph%C3%A9es%20%26%20m%C3%A9dailles" class="button button-accent">Personnaliser ce modèle ↗</a></div><img src="media/trophees-louveteaux.webp" alt="Exemple de Trophées &amp; médailles réalisé par My GPX"/></section><section class="product-story"><div><p class="eyebrow"><span></span> Ton défi, ton souvenir</p><h2>Une création qui ne ressemble qu’à toi.</h2></div><p>Course, tournoi, challenge d’entreprise ou cadeau commémoratif : nous partons de ton univers pour créer une forme qui n’existe nulle part ailleurs. Les commandes unitaires comme les séries sont étudiées sur mesure.</p></section><section class="product-details"><article><span class="detail-number">01</span><h2>100 % personnalisable</h2><ul><li>Forme et dimensions libres</li><li>Texte, logo ou illustration gravés</li><li>Thématique sportive ou locale</li><li>Catégories et classements</li><li>Couleurs de l’impression 3D</li><li>Cordons et finitions</li></ul></article><article><span class="detail-number">02</span><h2>Caractéristiques</h2><ul><li>Fabrication artisanale dans le Var</li><li>Bois, gravure et impression 3D</li><li>Design unique pour chaque projet</li><li>Prototype ou BAT avant fabrication</li><li>Tarif dégressif selon quantité</li><li>Expédition en France et à l’international</li></ul></article></section><section class="product-gallery"><img src="media/trophee-padel.webp" alt="Trophées &amp; médailles, réalisation 1"/><img src="media/medaille-foot.webp" alt="Trophées &amp; médailles, réalisation 2"/><img src="media/trophees-triathlon.webp" alt="Trophées &amp; médailles, réalisation 3"/></section><section class="product-cta"><p class="eyebrow"><span></span> Prêt à commencer ?</p><h2>Raconte-nous ton projet.</h2><p>Chaque création commence par une demande de devis. Nous préparons ensuite un design que tu valides avant la fabrication.</p><a href="devis.html?projet=Troph%C3%A9es%20%26%20m%C3%A9dailles" class="button button-accent">Demander mon devis ↗</a></section><footer class="site-footer"><div><a href="index.html" class="brand footer-brand"><span class="brand-mark" aria-hidden="true">M</span><span><strong>MY GPX</strong><small>Ton effort. Ton histoire. Ton trophée.</small></span></a><p>Souvenirs de courses et récompenses sportives personnalisés, fabriqués artisanalement dans le Var.</p></div><div><h3>Découvrir</h3><a href="trace-exploit.html">Trace d’Exploit</a><a href="hexarun.html">Hexarun</a><a href="trophees-medailles.html">Trophées &amp; médailles</a><a href="devis.html">Demander un devis</a></div><div><h3>Nous suivre</h3><a href="https://www.instagram.com/my.gpx" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.facebook.com/share/1KzSbzuw7f/" target="_blank" rel="noreferrer">Facebook ↗</a><a href="mailto:my.gpx13@gmail.com">my.gpx13@gmail.com</a></div><div><h3>Informations</h3><a href="informations-legales.html">Mentions légales</a><a href="informations-legales.html#cgv">Conditions générales de vente</a><p>© 2026 My GPX</p></div></footer></main><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filters = document.querySelectorAll('.gallery-filters button');
+  const figures = document.querySelectorAll('.gallery-grid figure');
+  filters.forEach(function (button) {
+    button.addEventListener('click', function () {
+      filters.forEach(function (item) { item.classList.remove('active'); });
+      button.classList.add('active');
+      const category = button.textContent.trim();
+      figures.forEach(function (figure) {
+        const caption = figure.querySelector('figcaption');
+        figure.hidden = category !== 'Tout' && (!caption || caption.textContent.trim() !== category);
+      });
+    });
+  });
+
+  const form = document.querySelector('.quote-form');
+  if (form) {
+    const requestedProject = new URLSearchParams(window.location.search).get('projet');
+    const projectSelect = form.querySelector('[name="projectType"]');
+    if (requestedProject && projectSelect) {
+      const normalizedProject = requestedProject === 'Trophées & médailles' ? 'Trophées ou médailles' : requestedProject;
+      projectSelect.value = normalizedProject;
+    }
+    const fileField = form.querySelector('.file-field');
+    if (fileField) {
+      const note = document.createElement('small');
+      note.textContent = 'Les fichiers devront être joints manuellement dans l’e-mail qui va s’ouvrir.';
+      fileField.appendChild(note);
+    }
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const labels = {
+        projectType: 'Type de création',
+        eventName: 'Course ou événement',
+        quantity: 'Quantité',
+        deadline: 'Date souhaitée',
+        message: 'Description',
+        fullName: 'Nom et prénom',
+        email: 'E-mail',
+        phone: 'Téléphone',
+        delivery: 'Remise du produit'
+      };
+      const lines = ['Bonjour My GPX,', '', 'Je souhaite demander un devis.', ''];
+      Object.keys(labels).forEach(function (key) {
+        const value = data.get(key);
+        if (value) lines.push(labels[key] + ' : ' + value);
+      });
+      lines.push('', 'Je joins mes fichiers utiles à cet e-mail.', '', 'Merci.');
+      const subject = 'Demande de devis My GPX — ' + (data.get('fullName') || 'Nouveau projet');
+      window.location.href = 'mailto:my.gpx13@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  }
+});
+</script></body></html>

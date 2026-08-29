@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="fr"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/styles.css" data-rsc-css-href="assets/styles.css" data-precedence="vite-rsc/importer-resources"/><title>My GPX — Ton effort. Ton histoire. Ton trophée.</title><meta name="description" content="Souvenirs de courses, trophées et médailles personnalisés en bois, fabriqués artisanalement dans le Var."/>
+</head><body><main><header class="site-header"><a href="index.html" class="brand" aria-label="My GPX, accueil"><span class="brand-mark" aria-hidden="true">M</span><span><strong>MY GPX</strong><small>Ton effort. Ton histoire. Ton trophée.</small></span></a><nav class="main-nav" aria-label="Navigation principale"><a href="index.html#modeles">Nos créations</a><a href="index.html#savoir-faire">Savoir-faire</a><a href="index.html#realisations">Réalisations</a></nav><a href="devis.html" class="button button-dark header-cta">Demander un devis</a></header><section class="quote-hero"><div><p class="eyebrow"><span></span> Demande de devis</p><h1>Fais-nous entrer<br/><em>dans ton histoire.</em></h1><p>Décris ton projet et joins les éléments utiles. Nous reviendrons vers toi pour préciser la création et préparer un devis personnalisé.</p></div><aside><h2>Et après ?</h2><ol><li><b>1</b><span><strong>Nous étudions ta demande</strong>Modèle, dimensions, quantité et délai.</span></li><li><b>2</b><span><strong>Tu reçois ton devis</strong>Le prix tient compte de la personnalisation.</span></li><li><b>3</b><span><strong>Tu valides le BAT</strong>Aucune fabrication sans ton accord.</span></li><li><b>4</b><span><strong>Paiement et fabrication</strong>Environ une semaine selon le projet.</span></li></ol></aside></section><section class="quote-form-section"><form class="quote-form"><input class="honeypot" type="text" tabindex="-1" autoComplete="off" aria-hidden="true" name="website"/><fieldset><legend>1. Ton projet</legend><div class="form-grid"><label>Type de création *<select name="projectType" required=""><option value="" disabled="" selected="">Choisir un modèle</option><option>Trace d’Exploit</option><option>Hexarun</option><option>Trophées ou médailles</option><option>Autre création sur mesure</option></select></label><label>Nom de la course ou de l’événement<input placeholder="Ex. VVX, tournoi du club…" name="eventName"/></label><label>Quantité *<input type="number" min="1" max="5000" required="" name="quantity" value="1"/></label><label>Date souhaitée<input type="date" name="deadline"/></label></div><label>Décris ton idée *<textarea name="message" rows="6" required="" placeholder="Distance, dénivelé, chrono, couleurs, texte, dimensions, nombre de récompenses…"></textarea></label><label class="file-field"><span>Fichiers utiles</span><input type="file" multiple="" accept=".gpx,.xml,.txt,.pdf,.jpg,.jpeg,.png,.webp" name="files"/><small>GPX, logo, photo ou illustration — 4 fichiers maximum, 8 Mo par fichier.</small></label></fieldset><fieldset><legend>2. Tes coordonnées</legend><div class="form-grid"><label>Nom et prénom *<input autoComplete="name" required="" name="fullName"/></label><label>E-mail *<input type="email" autoComplete="email" required="" name="email"/></label><label>Téléphone<input type="tel" autoComplete="tel" name="phone"/></label><label>Remise du produit *<select name="delivery" required=""><option value="" disabled="" selected="">Choisir</option><option>Livraison en France</option><option>Livraison hors de France</option><option>Remise en main propre</option></select></label></div></fieldset><label class="consent"><input type="checkbox" required=""/> <span>J’accepte que mes informations soient utilisées pour traiter ma demande de devis.</span></label><button class="button button-accent form-submit" type="submit">Envoyer ma demande de devis ↗</button></form></section><footer class="site-footer"><div><a href="index.html" class="brand footer-brand"><span class="brand-mark" aria-hidden="true">M</span><span><strong>MY GPX</strong><small>Ton effort. Ton histoire. Ton trophée.</small></span></a><p>Souvenirs de courses et récompenses sportives personnalisés, fabriqués artisanalement dans le Var.</p></div><div><h3>Découvrir</h3><a href="trace-exploit.html">Trace d’Exploit</a><a href="hexarun.html">Hexarun</a><a href="trophees-medailles.html">Trophées &amp; médailles</a><a href="devis.html">Demander un devis</a></div><div><h3>Nous suivre</h3><a href="https://www.instagram.com/my.gpx" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.facebook.com/share/1KzSbzuw7f/" target="_blank" rel="noreferrer">Facebook ↗</a><a href="mailto:my.gpx13@gmail.com">my.gpx13@gmail.com</a></div><div><h3>Informations</h3><a href="informations-legales.html">Mentions légales</a><a href="informations-legales.html#cgv">Conditions générales de vente</a><p>© 2026 My GPX</p></div></footer></main><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filters = document.querySelectorAll('.gallery-filters button');
+  const figures = document.querySelectorAll('.gallery-grid figure');
+  filters.forEach(function (button) {
+    button.addEventListener('click', function () {
+      filters.forEach(function (item) { item.classList.remove('active'); });
+      button.classList.add('active');
+      const category = button.textContent.trim();
+      figures.forEach(function (figure) {
+        const caption = figure.querySelector('figcaption');
+        figure.hidden = category !== 'Tout' && (!caption || caption.textContent.trim() !== category);
+      });
+    });
+  });
+
+  const form = document.querySelector('.quote-form');
+  if (form) {
+    const requestedProject = new URLSearchParams(window.location.search).get('projet');
+    const projectSelect = form.querySelector('[name="projectType"]');
+    if (requestedProject && projectSelect) {
+      const normalizedProject = requestedProject === 'Trophées & médailles' ? 'Trophées ou médailles' : requestedProject;
+      projectSelect.value = normalizedProject;
+    }
+    const fileField = form.querySelector('.file-field');
+    if (fileField) {
+      const note = document.createElement('small');
+      note.textContent = 'Les fichiers devront être joints manuellement dans l’e-mail qui va s’ouvrir.';
+      fileField.appendChild(note);
+    }
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const labels = {
+        projectType: 'Type de création',
+        eventName: 'Course ou événement',
+        quantity: 'Quantité',
+        deadline: 'Date souhaitée',
+        message: 'Description',
+        fullName: 'Nom et prénom',
+        email: 'E-mail',
+        phone: 'Téléphone',
+        delivery: 'Remise du produit'
+      };
+      const lines = ['Bonjour My GPX,', '', 'Je souhaite demander un devis.', ''];
+      Object.keys(labels).forEach(function (key) {
+        const value = data.get(key);
+        if (value) lines.push(labels[key] + ' : ' + value);
+      });
+      lines.push('', 'Je joins mes fichiers utiles à cet e-mail.', '', 'Merci.');
+      const subject = 'Demande de devis My GPX — ' + (data.get('fullName') || 'Nouveau projet');
+      window.location.href = 'mailto:my.gpx13@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  }
+});
+</script></body></html>

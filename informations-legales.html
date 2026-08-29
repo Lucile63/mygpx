@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="fr"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/styles.css" data-rsc-css-href="assets/styles.css" data-precedence="vite-rsc/importer-resources"/><title>My GPX — Ton effort. Ton histoire. Ton trophée.</title><meta name="description" content="Souvenirs de courses, trophées et médailles personnalisés en bois, fabriqués artisanalement dans le Var."/>
+</head><body><main><header class="site-header"><a href="index.html" class="brand" aria-label="My GPX, accueil"><span class="brand-mark" aria-hidden="true">M</span><span><strong>MY GPX</strong><small>Ton effort. Ton histoire. Ton trophée.</small></span></a><nav class="main-nav" aria-label="Navigation principale"><a href="index.html#modeles">Nos créations</a><a href="index.html#savoir-faire">Savoir-faire</a><a href="index.html#realisations">Réalisations</a></nav><a href="devis.html" class="button button-dark header-cta">Demander un devis</a></header><article class="legal-page"><p class="eyebrow"><span></span> Informations légales</p><h1>Mentions légales &amp; CGV</h1><section><h2>Éditeur du site</h2><p>Le site My GPX est édité par la micro-entreprise de Yannick Thomas-Billot, SIRET 995 173 366 00015.</p><p>Directeur de la publication : Yannick Thomas-Billot<br/>Contact : <a href="mailto:my.gpx13@gmail.com">my.gpx13@gmail.com</a></p></section><section><h2>Hébergement</h2><p>Le nom de domaine mygpx.fr est géré auprès d’OVHcloud. Les informations définitives relatives à l’hébergement du nouveau site seront précisées lors de sa mise en production sur le domaine.</p></section><section><h2>Propriété intellectuelle</h2><p>Les textes, photographies, logos, graphismes, créations, modèles 3D, fichiers numériques, cartes et parcours présents sur le site sont protégés. Toute reproduction ou exploitation sans autorisation écrite préalable de My GPX est interdite.</p></section><section><h2>Données personnelles</h2><p>Les données collectées sont utilisées exclusivement pour répondre aux demandes de devis, préparer les créations, traiter les commandes et satisfaire aux obligations légales. Elles ne sont ni vendues ni cédées. Toute demande d’accès, de rectification, d’effacement ou d’opposition peut être adressée à my.gpx13@gmail.com.</p></section><section id="cgv"><h2>Conditions générales de vente</h2><h3>1. Produits</h3><p>My GPX réalise des objets décoratifs, souvenirs de performances, trophées, médailles et créations personnalisées en bois, gravure laser ou impression 3D. Les photographies et rendus sont présentés à titre illustratif ; de légères variations sont inhérentes à la fabrication artisanale.</p><h3>2. Devis et commande</h3><p>Toute commande fait l’objet d’un devis personnalisé. Elle devient ferme après acceptation du devis, validation du bon à tirer et réception du paiement. Le client garantit l’exactitude des informations et disposer des droits nécessaires sur les fichiers transmis.</p><h3>3. Prix et paiement</h3><p>Les prix sont indiqués en euros. TVA non applicable, article 293 B du CGI. Le paiement s’effectue en ligne ou par virement selon les modalités précisées sur le devis. Les frais de livraison sont ajoutés au prix de la création.</p><h3>4. Fabrication et livraison</h3><p>Le délai habituel de fabrication est d’environ une semaine après validation du BAT et paiement, sous réserve de la complexité et du volume. La livraison est réalisée à l’adresse fournie par le client. Une remise en main propre peut être convenue.</p><h3>5. Produits personnalisés et rétractation</h3><p>Conformément à l’article L221-28 du Code de la consommation, le droit de rétractation ne s’applique pas aux biens confectionnés selon les spécifications du client ou nettement personnalisés.</p><h3>6. Réclamations et garanties</h3><p>Toute erreur de fabrication ou défaut apparent doit être signalé rapidement par e-mail, accompagné de photographies. Selon le cas, My GPX pourra proposer une réparation, un remplacement ou une solution commerciale appropriée. Les garanties légales de conformité et des vices cachés restent applicables.</p><h3>7. Médiation</h3><p>Les coordonnées du médiateur de la consommation choisi par My GPX devront être ajoutées avant l’ouverture commerciale définitive du site.</p><h3>8. Droit applicable</h3><p>Les présentes conditions sont soumises au droit français.</p></section></article><footer class="site-footer"><div><a href="index.html" class="brand footer-brand"><span class="brand-mark" aria-hidden="true">M</span><span><strong>MY GPX</strong><small>Ton effort. Ton histoire. Ton trophée.</small></span></a><p>Souvenirs de courses et récompenses sportives personnalisés, fabriqués artisanalement dans le Var.</p></div><div><h3>Découvrir</h3><a href="trace-exploit.html">Trace d’Exploit</a><a href="hexarun.html">Hexarun</a><a href="trophees-medailles.html">Trophées &amp; médailles</a><a href="devis.html">Demander un devis</a></div><div><h3>Nous suivre</h3><a href="https://www.instagram.com/my.gpx" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.facebook.com/share/1KzSbzuw7f/" target="_blank" rel="noreferrer">Facebook ↗</a><a href="mailto:my.gpx13@gmail.com">my.gpx13@gmail.com</a></div><div><h3>Informations</h3><a href="informations-legales.html">Mentions légales</a><a href="informations-legales.html#cgv">Conditions générales de vente</a><p>© 2026 My GPX</p></div></footer></main><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filters = document.querySelectorAll('.gallery-filters button');
+  const figures = document.querySelectorAll('.gallery-grid figure');
+  filters.forEach(function (button) {
+    button.addEventListener('click', function () {
+      filters.forEach(function (item) { item.classList.remove('active'); });
+      button.classList.add('active');
+      const category = button.textContent.trim();
+      figures.forEach(function (figure) {
+        const caption = figure.querySelector('figcaption');
+        figure.hidden = category !== 'Tout' && (!caption || caption.textContent.trim() !== category);
+      });
+    });
+  });
+
+  const form = document.querySelector('.quote-form');
+  if (form) {
+    const requestedProject = new URLSearchParams(window.location.search).get('projet');
+    const projectSelect = form.querySelector('[name="projectType"]');
+    if (requestedProject && projectSelect) {
+      const normalizedProject = requestedProject === 'Trophées & médailles' ? 'Trophées ou médailles' : requestedProject;
+      projectSelect.value = normalizedProject;
+    }
+    const fileField = form.querySelector('.file-field');
+    if (fileField) {
+      const note = document.createElement('small');
+      note.textContent = 'Les fichiers devront être joints manuellement dans l’e-mail qui va s’ouvrir.';
+      fileField.appendChild(note);
+    }
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const labels = {
+        projectType: 'Type de création',
+        eventName: 'Course ou événement',
+        quantity: 'Quantité',
+        deadline: 'Date souhaitée',
+        message: 'Description',
+        fullName: 'Nom et prénom',
+        email: 'E-mail',
+        phone: 'Téléphone',
+        delivery: 'Remise du produit'
+      };
+      const lines = ['Bonjour My GPX,', '', 'Je souhaite demander un devis.', ''];
+      Object.keys(labels).forEach(function (key) {
+        const value = data.get(key);
+        if (value) lines.push(labels[key] + ' : ' + value);
+      });
+      lines.push('', 'Je joins mes fichiers utiles à cet e-mail.', '', 'Merci.');
+      const subject = 'Demande de devis My GPX — ' + (data.get('fullName') || 'Nouveau projet');
+      window.location.href = 'mailto:my.gpx13@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  }
+});
+</script></body></html>
