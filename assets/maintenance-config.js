@@ -3,7 +3,7 @@
  * false = site normal
  * true  = page de maintenance
  */
-window.MYGPX_MAINTENANCE = false;
+window.MYGPX_MAINTENANCE = true;
 
 if (
   window.MYGPX_MAINTENANCE &&
