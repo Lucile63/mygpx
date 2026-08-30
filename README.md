@@ -31,6 +31,21 @@ Pour l'activer depuis GitHub :
 
 Pour remettre le site en ligne, effectuez la même opération en remplaçant `true` par `false`.
 
+## Statistiques Umami
+
+Le suivi anonyme des visites est configuré avec Umami Cloud pour le domaine `mygpx.fr`.
+
+Les événements suivants sont enregistrés :
+
+- `quote-cta-click` : clic vers la demande de devis ;
+- `quote-form-start` : première interaction avec le formulaire ;
+- `quote-email-open` : formulaire valide et ouverture de l'e-mail ;
+- `email-click` : clic sur une adresse e-mail ;
+- `instagram-click` et `facebook-click` : clic vers un réseau social ;
+- `gallery-filter-click` : utilisation d'un filtre de la galerie.
+
+Aucune donnée saisie dans le formulaire n'est envoyée à Umami.
+
 ## Contenu
 
 - 6 pages HTML principales et une page de maintenance
@@ -39,3 +54,4 @@ Pour remettre le site en ligne, effectuez la même opération en remplaçant `tr
 - navigation et galerie filtrable
 - formulaire de devis adapté à un hébergement statique
 - interrupteur de maintenance commun à toutes les pages
+- statistiques de fréquentation et événements Umami
